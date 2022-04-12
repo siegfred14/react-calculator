@@ -1,10 +1,9 @@
-import logo from "./logo.svg";
-import "./App.css";
+import "./styles.css";
 import Calculator from "./components/Calculator";
 
 function App() {
   return (
-    <div className="App">
+    <div className="calculator-grid">
       <Calculator />
     </div>
   );
