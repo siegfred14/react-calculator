@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useReducer } from "react";
+
+function reducer(state, action) {}
 
 export default function Calculator() {
+  // Using reducer to manage the different state
+  const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
+    reducer,
+    {}
+  );
+
   return (
     <div className="calculator-grid">
       <div className="output">
-        <div className="previous-operand">123456</div>
-        <div className="current-operand">325758</div>
+        <div className="previous-operand">
+          {previousOperand} {operation}
+        </div>
+        <div className="current-operand">{currentOperand}</div>
       </div>
       <button className="span-two">AC</button>
       <button>DEL</button>
