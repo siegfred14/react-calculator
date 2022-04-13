@@ -1,6 +1,14 @@
 import React, { useReducer } from "react";
 
-function reducer(state, action) {}
+const ACTIONS = {
+  ADD_DIGIT: "add-digit",
+  CHOOSE_OPERATION: "choose-operation",
+  CLEAR: "clear",
+  DELETE_DIGIT: "delete-digit",
+  EVELUATE: "evaluate",
+};
+
+function reducer(state, { type, payload }) {}
 
 export default function Calculator() {
   // Using reducer to manage the different state
