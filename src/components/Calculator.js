@@ -8,7 +8,15 @@ const ACTIONS = {
   EVELUATE: "evaluate",
 };
 
-function reducer(state, { type, payload }) {}
+function reducer(state, { type, payload }) {
+  switch (type) {
+    case ACTIONS.ADD_DIGIT:
+      return {
+        ...state,
+        currentOperand: `${currentOperand}${payload.digit}`,
+      };
+  }
+}
 
 export default function Calculator() {
   // Using reducer to manage the different state
