@@ -13,7 +13,7 @@ function reducer(state, { type, payload }) {
     case ACTIONS.ADD_DIGIT:
       return {
         ...state,
-        currentOperand: `${currentOperand}${payload.digit}`,
+        currentOperand: `${currentOperand || ""}${payload.digit}`,
       };
   }
 }
@@ -24,6 +24,8 @@ export default function Calculator() {
     reducer,
     {}
   );
+
+  dispatch({ type: ACTIONS.ADD_DIGIT, payload: { digit: 1 } });
 
   return (
     <div className="calculator-grid">
