@@ -32,6 +32,12 @@ const reducer = (state, { type, payload }) => {
           currentOperand: null,
         };
       }
+      return {
+        ...state,
+        previousOperand: evaluate(state),
+        operation: payload.operation,
+        currentOperand: null,
+      };
     case ACTIONS.CLEAR:
       return {};
   }
