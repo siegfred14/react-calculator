@@ -24,6 +24,15 @@ const reducer = (state, { type, payload }) => {
       if (state.currentOperand == null && state.previousOperand == null) {
         return state;
       }
+
+      // case of change of symbol - supposing someone types + and changes it to - let computation remain
+      if (state.currentOperand == null) {
+        return {
+          ...state,
+          operation: payload.operation,
+        };
+      }
+
       if (state.previousOperand == null) {
         return {
           ...state,
