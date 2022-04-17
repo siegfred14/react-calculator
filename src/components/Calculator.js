@@ -10,6 +10,7 @@ export const ACTIONS = {
   EVELUATE: "evaluate",
 };
 
+// reducer function for performing operations
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
@@ -122,7 +123,12 @@ export default function Calculator() {
       <DigitButton digit="." dispatch={dispatch} />
       <DigitButton digit="0" dispatch={dispatch} />
       {/* <OperationButton operation="+" dispatch={dispatch} /> */}
-      <button className="span-two">=</button>
+      <button
+        className="span-two"
+        onClick={() => dispatch({ type: ACTIONS.CLEAR })}
+      >
+        =
+      </button>
     </div>
   );
 }
