@@ -68,6 +68,7 @@ const reducer = (state, { type, payload }) => {
           currentOperand: null,
         };
       }
+      if (state.currentOperand == null) return state;
 
     case ACTIONS.EVALUATE:
       if (
