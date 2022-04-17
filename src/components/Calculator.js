@@ -60,6 +60,15 @@ const reducer = (state, { type, payload }) => {
     case ACTIONS.CLEAR:
       return {};
 
+    case ACTIONS.DELETE_DIGIT:
+      if (state.overwrite) {
+        return {
+          ...state,
+          overwrite: false,
+          currentOperand: null,
+        };
+      }
+
     case ACTIONS.EVALUATE:
       if (
         state.operation == null ||
@@ -150,7 +159,7 @@ export default function Calculator() {
       {/* <OperationButton operation="+" dispatch={dispatch} /> */}
       <button
         className="span-two"
-        onClick={() => dispatch({ type: ACTIONS.CLEAR })}
+        onClick={() => dispatch({ type: ACTIONS.EVALUATE })}
       >
         =
       </button>
