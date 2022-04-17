@@ -147,7 +147,9 @@ export default function Calculator() {
       >
         AC
       </button>
-      <button>DEL</button>
+      <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>
+        DEL
+      </button>
       <OperationButton operation="/" dispatch={dispatch} />
 
       <DigitButton digit="1" dispatch={dispatch} />
