@@ -76,6 +76,11 @@ const reducer = (state, { type, payload }) => {
         };
       }
 
+      return {
+        ...state,
+        currentOperand: state.currentOperand.slice(0, -1),
+      };
+
     case ACTIONS.EVALUATE:
       if (
         state.operation == null ||
