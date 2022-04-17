@@ -7,13 +7,20 @@ export const ACTIONS = {
   CHOOSE_OPERATION: "choose-operation",
   CLEAR: "clear",
   DELETE_DIGIT: "delete-digit",
-  EVELUATE: "evaluate",
+  EVALUATE: "evaluate",
 };
 
 // reducer function for performing operations
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
+      if (state.overwrite) {
+        return {
+          ...state,
+          currentOperand: payload.digit,
+          overwrite: false,
+        };
+      }
       if (payload.digit === "0" && state.currentOperand === "0") return state;
       if (payload.digit === "." && state.currentOperand.includes("."))
         return state;
@@ -21,6 +28,7 @@ const reducer = (state, { type, payload }) => {
         ...state,
         currentOperand: `${state.currentOperand || ""}${payload.digit}`,
       };
+
     case ACTIONS.CHOOSE_OPERATION:
       if (state.currentOperand == null && state.previousOperand == null) {
         return state;
@@ -48,9 +56,11 @@ const reducer = (state, { type, payload }) => {
         operation: payload.operation,
         currentOperand: null,
       };
+
     case ACTIONS.CLEAR:
       return {};
-    case ACTIONS.EVELUATE:
+
+    case ACTIONS.EVALUATE:
       if (
         state.operation == null ||
         state.currentOperand == null ||
