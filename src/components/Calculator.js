@@ -128,6 +128,11 @@ const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
   maximumFractionDigits: 0,
 });
 
+const formatOperand = (operand) => {
+  if (operand == null) return;
+  const [integer, decimal] = operand.split(".");
+};
+
 export default function Calculator() {
   // Using reducer to manage the different state
   const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
