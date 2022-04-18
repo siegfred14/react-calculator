@@ -124,6 +124,10 @@ const evaluate = ({ currentOperand, previousOperand, operation }) => {
   return computation.toString();
 };
 
+const INTEGER_FORMATTER = new Intl.NumberFormat("en-us", {
+  maximumFractionDigits: 0,
+});
+
 export default function Calculator() {
   // Using reducer to manage the different state
   const [{ currentOperand, previousOperand, operation }, dispatch] = useReducer(
