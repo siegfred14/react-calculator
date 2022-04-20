@@ -197,3 +197,10 @@ export default function Calculator() {
 // syntax -> array.reduce(reducer, initialValue)   -    useReducer(reducer, initialState)
 // singleValue = reducer(accumulator, itemValue)   -    newState = reducer(currentState, action)
 // reduce method returns a single value            -    useReducer returns a pair of values. [newState, dispatch]
+
+// useReducer Summary
+// useReducer is a hook that is used for state management in React
+// useReducer is related to reducer functions
+// useReducer hooks will accept two parametres useReducer(reducer, initialState)
+// reducer also accepts two parametres reducer(currentState, action). depending on te value of the currentState and action, the reducer function will return a new state
+// useReducer is basically changing the state in React components
