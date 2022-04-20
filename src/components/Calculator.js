@@ -191,3 +191,9 @@ export default function Calculator() {
     </div>
   );
 }
+
+// reduce vs useReducer
+// reduce in JS                                         useReducer in React
+// syntax -> array.reduce(reducer, initialValue)   -    useReducer(reducer, initialState)
+// singleValue = reducer(accumulator, itemValue)   -    newState = reducer(currentState, action)
+// reduce method returns a single value            -    useReducer returns a pair of values. [newState, dispatch]
