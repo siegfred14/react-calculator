@@ -35,7 +35,7 @@ const reducer = (state, { type, payload }) => {
       }
 
       // case of change of symbol - supposing someone types + and changes it to - let computation remain
-      if (state.currentOperand == null) {
+      if (state.currentOperand == null) { 
         return {
           ...state,
           operation: payload.operation,
